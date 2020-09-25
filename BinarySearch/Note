@@ -1,0 +1,28 @@
+def BinarySearch(Target, List):
+    List.sort()
+    Start, End = 0, len(List)-1
+
+    while Start <= End:
+        Mid = (Start + End) // 2
+        if List[Mid] == Target:
+            return Mid
+        elif List[Mid] < Target:
+            Start = Mid + 1
+        else:
+            End = Mid - 1
+    return None
+
+print("세제곱 탐색")
+print("숫자 입력: ")
+a = int(input())
+
+print("Target 입력:")
+b = int(input())
+
+NumList = [i**3 for i in range(a+1)]
+Output = BinarySearch(b, NumList)
+
+if Output:
+    print("{}는 {}번째로 존재합니다.".format(b, Output))
+else:
+    print("{}는 존재하지않습니다.".format(b))
