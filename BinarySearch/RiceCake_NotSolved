@@ -1,0 +1,33 @@
+import sys
+
+def BinaryRicecakeSearch(Array, Target, Start, End):
+    while Start <= End:
+        Array.sort()
+        Sum = 0
+        Mid = (Start + End)//2
+
+        for i in Array:
+            if i > Array[Mid]:
+                a = i - Array[Mid]
+            else:
+                a = 0
+        Sum += a
+
+        if Sum == Target:
+            return Target
+        elif Sum < Target:
+            End = Mid - 1
+        else:
+            Start = Mid + 1
+    return None
+
+N, H = map(int, input().split())
+RicecakeList = list(map(int, input().split()))
+Result = BinaryRicecakeSearch(RicecakeList, H, 0, N-1)
+
+if Result != None:
+    print()
+else:
+    print("답이 없습니다.")
+    
+# 내일 다시
