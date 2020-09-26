@@ -1,0 +1,13 @@
+def solution(Array, Budget):
+    Array.sort()
+    Answer = 0
+    Sum = 0
+    for i in Array:
+        if Sum + i <= Budget:
+            Sum += i
+            Answer +=1
+        else:
+            break
+    return Answer
+
+solution([1,3,2,5,4], 9)
