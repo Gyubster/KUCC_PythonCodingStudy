@@ -1,0 +1,26 @@
+N = int(input())
+Count = 0
+
+Calculation = True
+
+while Calculation:
+    if N%2 != 0 and N%3 != 0:
+        N = N-1
+        Count += 1
+
+    elif N%6 == 0:
+        N = N/3
+        Count += 1
+
+    elif N%2 == 0 and N%3 != 0:
+        N = N/2
+        Count += 1
+
+    elif N%2 != 0 and N%3 == 0:
+        N = N/3
+        Count += 1
+
+    if N == 1:
+        Calculation = False
+
+print(Count)
