@@ -1,0 +1,27 @@
+
+# 입력
+N = int(input())
+ConsultingList =[]
+
+for i in range(N):
+    Time_Money = list(map(int, input().split()))
+    ConsultingList.append(Time_Money)
+
+# 논리 구조 - 거꾸로 생각
+# Sum List를 새로 만들어서 마지막날 부터 상담소요시간이 초과 할때는 비용을 더하지않는 방식으로 접근.
+Sum = []
+for i in range(N):
+    Sum.append(ConsultingList[i][1])
+
+Sum.append(0)
+
+# (N-1, 0, -1) 아님.
+for i in range(N-1, -1, -1):
+    #  날짜 초과할때
+    if ConsultingList[i][0] + i > N:
+        Sum[i] = Sum[i+1]
+    # 날짜 안초과할때 
+    else:
+        Sum[i] = max(Sum[i+1], Sum[i+ConsultingList[i][0]]+ConsultingList[i][1])
+
+print(Sum[0])
