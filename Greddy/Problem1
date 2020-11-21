@@ -1,0 +1,14 @@
+InputList = list(map(int, input().split()))
+
+n = 0
+cnt = 0
+
+print(InputList)
+
+for i in range(len(InputList)-1):
+    if InputList[n] != InputList[n+1]:
+        cnt+=1
+
+print(cnt/2)
+
+#오류남. 인풋이 제대로 작동안함.
